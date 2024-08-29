@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Companion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CALMIFY</h1>
+        <h3>Your Mental Companion</h3>
+    </header>
+    <section>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="#userInfo"><img src="images\usericon.png"  /> User Info</a></li>
+            <li><a href="#moodTracker"><img src="images\mood.jpeg"  /> Mood Tracker</a></li>
+            <li><a href="#stressManagement"><img src="images\stress.png"  /> Stress Management</a></li>
+            <li><a href="#moodHistory"><img src="images\history.png"  /> Mood History</a></li>
+            <li><a href="#liveCamera"><img src="images\cam.png"  /> Live Camera</a></li>
+            <li><a href="#breathingExercise"><img src="images\breathe.png"  /> Breathing Exercise</a></li>
+        </ul>
+    </nav>
+</section>
+    <main>
+        <section id="userInfo">
+            <h2>Welcome, <span id="userName">User</span>!</h2>
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button onclick="updateName()">Update Name</button>
+        </section>
+        <section id="moodTracker">
+            <h2>Mood Tracker</h2>
+            <input type="range" id="moodRange" min="0" max="100" value="50" onchange="updateMoodMessage()">
+            <div id="moodMessage">Adjust your mood slider to see the message.</div>
+            <div id="wellnessQuote"></div>
+            <div id="boostMessage"></div>
+            <ul id="recommendationList"></ul>
+        </section>
+        <section id="stressManagement">
+            <h2>Stress Management</h2>
+            <button onclick="showStressTips()">Get Stress Management Tips</button>
+            <div id="stressTips"></div>
+        </section>
+        <section id="moodHistory">
+            <h2>Mood History</h2>
+            <!-- Mood history will be displayed here -->
+        </section>
+        <section id="liveCamera">
+            <h2>Live Camera for Mood Tracking</h2>
+            <video id="video" width="320" height="240" autoplay></video>
+            <button onclick="captureImage()">Capture Mood Image</button>
+            <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+            <img id="moodImage" width="320" height="240" />
+            <div id="sentimentAnalysis"></div>
+        </section>
+        <section id="breathingExercise">
+            <h2>Mindful Breathing</h2>
+            <button id="startButton" onclick="startBreathingExercise()">Start Breathing Exercise</button>
+            <button id="stopButton" onclick="stopBreathingExercise()" disabled>End Breathing Exercise</button>
+            <div id="breathingVisualizer"></div>
+            <div id="breathingTimer">00:00</div>
+        </section>
+        
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Mental Health Companion</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

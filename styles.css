@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+}
+
+header {
+    background-color: #bc89e9;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Navigation Bar Styles */
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8530ca;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-list li a:hover {
+    background-color: #bee7e8de;
+}
+
+/* Set the size of all icons in the navigation bar */
+.nav-list img {
+    width: 35px;   /* Set the width of the icons */
+    height: 35px;  /* Set the height of the icons */
+    margin-bottom: 5px; /* Space between the icon and text */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+    
+}
+
+.nav-list li a:hover img {
+    transform: scale(1.1); /* Slightly increase the size of the icon on hover */
+}
+
+/* Optional: Adjust the text size and spacing */
+.nav-list li a {
+    font-size: 14px; /* Text size */
+    color: white;    /* Text color */
+    text-decoration: none; /* Remove underline */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-list li a:hover {
+    color: #7a0770; /* Change text color on hover */
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+button {
+    background-color: #bc89e9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bc89e9;
+}
+
+#recommendationList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#recommendationList li {
+    margin: 5px 0;
+}
+
+.mood-record {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#video {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#canvas {
+    display: none;
+}
+
