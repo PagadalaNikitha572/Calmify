@@ -103,20 +103,18 @@ function showStressTips() {
 }
 
 
-// Log Activity Function
 function logActivity(activity) {
     console.log(`User activity logged: ${activity}`);
 }
 
-// Initialize App
+
 function init() {
-    updateMoodMessage(); // Set initial mood message
-    setupCamera(); // Initialize camera
+    updateMoodMessage(); 
+    setupCamera(); 
 
     logActivity('App initialized');
 }
 
-// Set up the camera for mood tracking
 function setupCamera() {
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
@@ -136,7 +134,6 @@ function setupCamera() {
     }
 }
 
-// Capture an image from the video feed and analyze it
 function captureImage() {
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
@@ -148,17 +145,17 @@ function captureImage() {
     analyzeSentiment(canvas.toDataURL('image/png'));
 }
 
-// Analyze sentiment from the captured image
+
 
 function analyzeSentiment(imageData) {
-    const API_KEY = 'AIzaSyDiGWlEme28_6gmhQd0tliC1EblnzIHrg8'; // Replace with your actual API key
+    const API_KEY = 'AIzaSyDiGWlEme28_6gmhQd0tliC1EblnzIHrg8'; 
     const VISION_API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
     
     const requestPayload = {
         requests: [
             {
                 image: {
-                    content: imageData.split(',')[1] // Remove the data URL prefix
+                    content: imageData.split(',')[1] 
                 },
                 features: [
                     {
@@ -257,7 +254,39 @@ function updateBreathingTimer(elapsedTime) {
 
     document.getElementById('breathingTimer').textContent = `${formattedMinutes}:${formattedSeconds}`;
 }
+function contactCounsellor() {
+    const counsellorUrl = "https://www.amahahealth.com/therapy-psychiatry/?utm_term=mental+health+therapist&utm_campaign=tele_therapy_bofl_book_phrase_23aug24&utm_source=google&utm_medium=cpc&utm_content=ad_group_phrase&campaignid=21615172497&adgroupid=166334307053&adid=710751655347&gad_source=1&gclid=CjwKCAjwxNW2BhAkEiwA24Cm9AjId_iw-bI3dGr3rQ704eTIkgDaBCiBkakf3CSrDX_xemCTPokW9RoCfl4QAvD_BwE"; 
+    window.open(counsellorUrl, '_blank'); 
+}
+function saveJournalEntry() {
+    const entry = document.getElementById('journalEntry').value;
+    if (entry) {
+        const journalRecord = {
+            date: new Date().toLocaleString(),
+            entry: entry
+        };
+        console.log("Journal entry saved:", journalRecord); 
+        document.getElementById('journalEntry').value = ''; 
+        logActivity('Journal entry saved');
+    } else {
+        alert("Please write something before saving.");
+    }
+}
+function generatePlaylist() {
+    const moodRange = document.getElementById('moodRange').value;
+    let playlistUrl = '';
 
+    if (moodRange < 30) {
+        playlistUrl = 'https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0'; // Chill playlist
+    } else if (moodRange < 70) {
+        playlistUrl = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M'; // Pop playlist
+    } else {
+        playlistUrl = 'https://open.spotify.com/playlist/37i9dQZF1DX1lVhptIYRda'; // Upbeat playlist
+    }
+
+    document.getElementById('playlistContainer').innerHTML = `<a href="${playlistUrl}" target="_blank">Listen to this playlist</a>`;
+    logActivity('Playlist generated');
+}
 
 // Run initialization on page load
 window.onload = init;
