@@ -127,7 +127,7 @@ function setupCamera() {
                 video.play();
             })
             .catch(function(err) {
-                console.error("Error accessing the camera: ", err);
+                console.error("Error:", err);
             });
     } else {
         console.error("getUserMedia not supported on this browser.");
